@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TCompanyCompany index{% endblock %}
+
+{% block body %}
+    <h1>TCompanyCompany index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Id</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_company_company in t_company_companies %}
+            <tr>
+                <td>{{ t_company_company.name }}</td>
+                <td>{{ t_company_company.id }}</td>
+                <td>
+                    {% if t_company_company.tCompanyAddress is defined %}
+                        {{ t_company_company.tCompanyAddress }}
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

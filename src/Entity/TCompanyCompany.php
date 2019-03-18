@@ -14,6 +14,11 @@ class TCompanyCompany
      */
     private $name;
 
+    /**
+     * @var TCompanyAddress
+     */
+    private $tCompanyAddress;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -24,10 +29,26 @@ class TCompanyCompany
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(string $name): TCompanyCompany
     {
         $this->name = $name;
-
         return $this;
     }
+
+    public function getTCompanyAddress(): ?TCompanyAddress
+    {
+        return $this->tCompanyAddress;
+    }
+
+    public function setTCompanyAddress(TCompanyAddress $tCompanyAddress): TCompanyCompany
+    {
+        $this->tCompanyAddress = $tCompanyAddress;
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
 }

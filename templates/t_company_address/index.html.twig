@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TCompanyAddress index{% endblock %}
+
+{% block body %}
+    <h1>TCompanyAddress index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Address</th>
+                <th>ZipCode</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Id</th>
+                <th>Company</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_company_address in t_company_addresses %}
+            <tr>
+                <td>{{ t_company_address.address }}</td>
+                <td>{{ t_company_address.zipCode }}</td>
+                <td>{{ t_company_address.city }}</td>
+                <td>{{ t_company_address.country }}</td>
+                <td>{{ t_company_address.id }}</td>
+                <td>
+                    {% if t_company_address.tCompanyCompany is defined %}
+                        {{ t_company_address.tCompanyCompany }}
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

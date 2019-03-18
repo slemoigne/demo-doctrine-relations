@@ -34,58 +34,58 @@ class TCompanyAddress
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
-    public function getAddress(): string
+    public function getAddress(): ?string
     {
         return $this->address;
     }
 
-    /**
-     * @param string $address
-     * @return TCompanyAddress
-     */
     public function setAddress(string $address): TCompanyAddress
     {
         $this->address = $address;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getCity(): string
+    public function getZipCode(): ?string
+    {
+        return $this->zipCode;
+    }
+
+    public function setZipCode(string $zipCode): TCompanyAddress
+    {
+        $this->zipCode = $zipCode;
+        return $this;
+    }
+
+    public function getCity(): ?string
     {
         return $this->city;
     }
 
-    /**
-     * @param string $city
-     * @return TCompanyAddress
-     */
     public function setCity(string $city): TCompanyAddress
     {
         $this->city = $city;
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getCountry(): string
+    public function getCountry(): ?string
     {
         return $this->country;
     }
 
-    /**
-     * @param string $country
-     * @return TCompanyAddress
-     */
     public function setCountry(string $country): TCompanyAddress
     {
         $this->country = $country;
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return implode(' ', array(
+           $this->getAddress(),
+           $this->getZipCode(),
+           $this->getCity(),
+           $this->getCountry()
+        ));
     }
 
 }

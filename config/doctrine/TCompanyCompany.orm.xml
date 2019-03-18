@@ -15,5 +15,18 @@
 
         <field name="name" column="name" type="string" length="255" nullable="false" />
 
+        <one-to-one
+                field="tCompanyAddress"
+                target-entity="App\Entity\TCompanyAddress"
+                fetch="EAGER">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+            <join-column
+                    name="t_company_address_id"
+                    referenced-column-name="id"
+                    nullable="false"/>
+        </one-to-one>
+
     </entity>
 </doctrine-mapping>
