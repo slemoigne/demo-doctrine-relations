@@ -27,9 +27,15 @@ class TCompanyCompany
      */
     private $tCompanyVehicles;
 
+    /**
+     * @var Collection
+     */
+    private $deviceDevices;
+
     public function __construct()
     {
         $this->tCompanyVehicles = new ArrayCollection();
+        $this->deviceDevices = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -76,6 +82,23 @@ class TCompanyCompany
     {
         $this->tCompanyVehicles->removeElement($tCompanyVehicle);
         //$tCompanyVehicle->setTCompanyCompany(null);
+        return $this;
+    }
+
+    public function getDeviceDevices(): ?Collection
+    {
+        return $this->deviceDevices;
+    }
+
+    public function addDeviceDevice(DeviceDevice $deviceDevice): self
+    {
+        $this->deviceDevices[] = $deviceDevice;
+        return $this;
+    }
+
+    public function removeDeviceDevice(DeviceDevice $deviceDevice): self
+    {
+        $this->deviceDevices->removeElement($deviceDevice);
         return $this;
     }
 

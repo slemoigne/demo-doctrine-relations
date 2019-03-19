@@ -36,6 +36,15 @@
                 <cascade-persist/>
             </cascade>
         </one-to-many>
+        
+        <many-to-many
+                field="deviceDevices"
+                target-entity="App\Entity\DeviceDevice"
+                mapped-by="tCompanyCompanies">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </many-to-many>
 
     </entity>
 </doctrine-mapping>

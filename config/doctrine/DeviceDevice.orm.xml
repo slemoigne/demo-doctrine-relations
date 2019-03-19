@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity
+            name="App\Entity\DeviceDevice"
+            table="device_devices"
+            repository-class="App\Repository\DeviceDeviceRepository">
+
+        <id name="id" type="integer" column="id">
+            <generator/>
+        </id>
+
+        <field name="name" column="name" length="255" />
+
+        <many-to-many
+                field="tCompanyCompanies"
+                target-entity="App\Entity\TCompanyCompany"
+                inversed-by="deviceDevices">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+            <order-by>
+                <order-by-field name="name"/>
+            </order-by>
+        </many-to-many>
+
+    </entity>
+</doctrine-mapping>

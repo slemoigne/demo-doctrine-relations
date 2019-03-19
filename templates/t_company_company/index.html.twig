@@ -5,13 +5,19 @@
 {% block body %}
     <h1>TCompanyCompany index</h1>
 
-    <table class="table">
-        <thead>
+    <table
+        class="
+            table
+            table-striped
+            table-bordered
+            table-hover">
+        <thead class="thead-dark">
             <tr>
                 <th>Name</th>
                 <th>Id</th>
                 <th>Address</th>
                 <th>Vehicles</th>
+                <th>Sys. Embarqués</th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +31,7 @@
                     {% endif %}
                 </td>
                 <td>{{ t_company_company.tCompanyVehicles|join(', ') }}</td>
+                <td>{{ t_company_company.deviceDevices|join(', ') }}</td>
             </tr>
         {% else %}
             <tr>
