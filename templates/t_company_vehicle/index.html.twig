@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TCompanyVehicle index{% endblock %}
+
+{% block body %}
+    <h1>TCompanyVehicle index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Id</th>
+                <th>Company</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for t_company_vehicle in t_company_vehicles %}
+            <tr>
+                <td>{{ t_company_vehicle.name }}</td>
+                <td>{{ t_company_vehicle.id }}</td>
+                <td>
+                    {% if t_company_vehicle.tCompanyCompany is defined %}
+                        {{ t_company_vehicle.tCompanyCompany }}
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

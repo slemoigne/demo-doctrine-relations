@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\TCompanyAddress;
 use App\Entity\TCompanyCompany;
+use App\Entity\TCompanyVehicle;
 use App\Repository\TCompanyCompanyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,9 +41,22 @@ class TCompanyCompanyController extends AbstractController
         $tCompanyAddress->setCity('Macon');
         $tCompanyAddress->setCountry('France');
 
+        $tCompanyVehicle = new TCompanyVehicle();
+        $tCompanyVehicle->setName('vehicle ' . time());
+
         $tCompanyCompany = new TCompanyCompany();
-        $tCompanyCompany->setName('Test add ' . time());
+        $tCompanyCompany->setName('Company ' . time());
         $tCompanyCompany->setTCompanyAddress($tCompanyAddress);
+
+        //$tCompanyCompany->addTCompanyVehicle($tCompanyVehicle);
+        //$tCompanyVehicle->setTCompanyCompany($tCompanyCompany);
+        //die(var_dump($tCompanyCompany->getTCompanyVehicles()));
+
+        //$tCompanyCompany->addTCompanyVehicle($tCompanyVehicle);
+        //die(var_dump($tCompanyVehicle->getTCompanyCompany()));
+
+        //$tCompanyVehicle->setTCompanyCompany($tCompanyCompany);
+        //die(var_dump($tCompanyCompany->getTCompanyVehicles()));
 
         $entityManager = $this->getDoctrine()->getManager();
         //$entityManager->persist($tCompanyAddress); // Déléguer la persistance à Doctrine en utilisant le système de cascade

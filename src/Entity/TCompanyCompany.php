@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 class TCompanyCompany
 {
     /**
@@ -19,6 +22,16 @@ class TCompanyCompany
      */
     private $tCompanyAddress;
 
+    /**
+     * @var Collection
+     */
+    private $tCompanyVehicles;
+
+    public function __construct()
+    {
+        $this->tCompanyVehicles = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,7 +42,7 @@ class TCompanyCompany
         return $this->name;
     }
 
-    public function setName(string $name): TCompanyCompany
+    public function setName(string $name): self
     {
         $this->name = $name;
         return $this;
@@ -40,9 +53,29 @@ class TCompanyCompany
         return $this->tCompanyAddress;
     }
 
-    public function setTCompanyAddress(TCompanyAddress $tCompanyAddress): TCompanyCompany
+    public function setTCompanyAddress(TCompanyAddress $tCompanyAddress): self
     {
         $this->tCompanyAddress = $tCompanyAddress;
+        return $this;
+    }
+
+    // Return ArrayCollection or PersistentCollection
+    public function getTCompanyVehicles(): ?Collection
+    {
+        return $this->tCompanyVehicles;
+    }
+
+    public function addTCompanyVehicle(TCompanyVehicle $tCompanyVehicle): self
+    {
+        $this->tCompanyVehicles[] = $tCompanyVehicle;
+        //$tCompanyVehicle->setTCompanyCompany($this);
+        return $this;
+    }
+
+    public function removeTCompanyVehicle(TCompanyVehicle $tCompanyVehicle): self
+    {
+        $this->tCompanyVehicles->removeElement($tCompanyVehicle);
+        //$tCompanyVehicle->setTCompanyCompany(null);
         return $this;
     }
 

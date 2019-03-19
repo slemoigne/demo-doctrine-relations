@@ -39,7 +39,7 @@ class TCompanyAddress
         return $this->address;
     }
 
-    public function setAddress(string $address): TCompanyAddress
+    public function setAddress(string $address): self
     {
         $this->address = $address;
         return $this;
@@ -50,7 +50,7 @@ class TCompanyAddress
         return $this->zipCode;
     }
 
-    public function setZipCode(string $zipCode): TCompanyAddress
+    public function setZipCode(string $zipCode): self
     {
         $this->zipCode = $zipCode;
         return $this;
@@ -61,7 +61,7 @@ class TCompanyAddress
         return $this->city;
     }
 
-    public function setCity(string $city): TCompanyAddress
+    public function setCity(string $city): self
     {
         $this->city = $city;
         return $this;
@@ -72,7 +72,7 @@ class TCompanyAddress
         return $this->country;
     }
 
-    public function setCountry(string $country): TCompanyAddress
+    public function setCountry(string $country): self
     {
         $this->country = $country;
         return $this;

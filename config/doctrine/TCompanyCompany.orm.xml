@@ -28,5 +28,14 @@
                     nullable="false"/>
         </one-to-one>
 
+        <one-to-many
+                field="tCompanyVehicles"
+                target-entity="App\Entity\TCompanyVehicle"
+                mapped-by="tCompanyCompany">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </one-to-many>
+
     </entity>
 </doctrine-mapping>

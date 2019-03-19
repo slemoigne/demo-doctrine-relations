@@ -15,5 +15,14 @@
 
         <field name="name" column="name" type="string" length="255" nullable="false" />
 
+        <many-to-one
+                field="tCompanyCompany"
+                target-entity="App\Entity\TCompanyCompany"
+                inversed-by="tCompanyVehicles">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </many-to-one>
+
     </entity>
 </doctrine-mapping>

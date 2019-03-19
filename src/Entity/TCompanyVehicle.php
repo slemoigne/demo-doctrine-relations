@@ -14,6 +14,11 @@ class TCompanyVehicle
      */
     private $name;
 
+    /**
+     * @var TCompanyCompany
+     */
+    private $tCompanyCompany;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,5 +34,28 @@ class TCompanyVehicle
         $this->name = $name;
 
         return $this;
+    }
+
+    public function getTCompanyCompany(): ?TCompanyCompany
+    {
+        return $this->tCompanyCompany;
+    }
+
+    public function setTCompanyCompany(TCompanyCompany $tCompanyCompany): self
+    {
+        /*if($this->tCompanyCompany) {
+            $this->tCompanyCompany->removeTCompanyVehicle($this);
+        }*/
+
+        $this->tCompanyCompany = $tCompanyCompany;
+
+        //$tCompanyCompany->addTCompanyVehicle($this);
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }
